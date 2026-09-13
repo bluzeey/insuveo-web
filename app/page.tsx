@@ -59,6 +59,7 @@ export default function MarketingPage() {
           <a href="#agents">Agents</a>
           <a href="#process">Process</a>
           <a href="#safety">Safety</a>
+          <a href="/blog">Blog</a>
           <a href={demoUrl}>Book demo</a>
         </nav>
       </header>
@@ -175,6 +176,7 @@ export default function MarketingPage() {
           <a href="#agents">Agents</a>
           <a href="#process">Process</a>
           <a href="#safety">Safety</a>
+          <a href="/blog">Blog</a>
           <a href={demoUrl}>Book demo</a>
         </nav>
       </footer>
