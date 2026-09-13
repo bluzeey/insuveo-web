@@ -1,4 +1,4 @@
-const demoUrl = 'https://calendar.app.google/mx5wAQbN6GmVNvXT7';
+const demoUrl = 'https://calendar.app.google/gLMwF9C1Gw6SED4S6';
 
 const agentTypes = [
   {
@@ -87,6 +87,7 @@ export default function MarketingPage() {
             <div><dt>Method</dt><dd>Email, one reminder, no calls</dd></div>
             <div><dt>Deliver</dt><dd>Summary with unanswered items and source links</dd></div>
           </dl>
+          <a className="button button-primary panel-demo-button" href={demoUrl}>Book a demo</a>
         </div>
       </section>
 

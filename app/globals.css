@@ -60,6 +60,8 @@ p { line-height: 1.6; }
 }
 .button-primary { background: var(--ink); color: var(--canvas); }
 .button-secondary { background: transparent; color: var(--ink); }
+.button:hover { transform: translateY(-1px); }
+.button-primary:hover { box-shadow: 0 8px 22px rgba(0,0,0,0.18); }
 
 .top-nav {
   position: sticky;
@@ -112,7 +114,7 @@ p { line-height: 1.6; }
 .hero-panel {
   padding: 28px;
   border: 1px solid var(--line);
-  background: rgba(255,255,255,0.86);
+  background: rgba(255,255,255,0.9);
 }
 .hero-panel h2 { font-size: 30px; margin-bottom: 22px; }
 .panel-label,
@@ -132,6 +134,13 @@ dl { margin: 0; }
 }
 dt { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
 dd { margin: 0; line-height: 1.45; }
+.panel-demo-button {
+  width: 100%;
+  margin-top: 22px;
+  min-height: 52px;
+  font-size: 17px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+}
 
 .section {
   padding: 78px max(22px, calc((100vw - 1200px) / 2));
