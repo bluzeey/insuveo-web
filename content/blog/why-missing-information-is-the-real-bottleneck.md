@@ -1,53 +1,89 @@
 ---
-title: "The bottleneck is often missing information, not the insurance decision"
-excerpt: "Many insurance workflows slow down before underwriting or claims decisions begin. The repeated work is finding the right fact, asking the right person, and resolving incomplete answers."
+title: "The insurance decision is not always the bottleneck. Getting the information is."
+excerpt: "Ask a broker, underwriter, or claims professional what slows work down and the answer is often surprisingly ordinary: the missing figure, outdated document, unanswered email, or context nobody carried forward."
 publishedAt: "2026-09-13"
-category: "Workflow research"
+category: "Insurance operations"
 author: "Sahil Maheshwari"
 ---
 
-When people talk about applying AI to insurance, the conversation quickly moves to underwriting, claims decisions, pricing, fraud, or document extraction. Those are important areas, but they are not always where the daily friction starts.
+Ask an insurance professional what slows a case down and the answer is not always a difficult underwriting or claims decision.
 
-A large amount of work happens earlier. Someone needs a turnover figure, a document, a loss detail, a change since last renewal, or an answer from another team. The request moves through email, spreadsheets, forms, calls, and reminders before the person responsible for the actual insurance decision has enough information to work with.
+Sometimes it is much more ordinary.
 
-That makes missing information a workflow problem in its own right.
+The turnover came back without a period. The client sent the wrong schedule. One question needs somebody in finance, another needs operations, and the person coordinating the request does not know who owns the third. An underwriter asks for clarification and the broker has to reopen a conversation that everybody thought was finished.
 
-## The request is rarely static
+None of this sounds dramatic. But when it happens across dozens of submissions, renewals, and claims, it becomes a real operating workload.
 
-A request can look simple when it begins. Ask for this year's revenue. Confirm whether a location has changed. Collect a list of vehicles. Get the supporting document for a claim.
+That is the part of insurance work I have become increasingly interested in.
 
-Then the response arrives.
+## The first reply is often only the start
 
-The revenue figure has no currency. The document is from the wrong period. The recipient only knows half the answer. The previous year's data exists, but nobody is sure whether it is still current.
+A request can look simple when it begins:
 
-At that point, the work is no longer form filling. Someone has to understand what is missing, decide who can answer it, ask a more specific question, and keep the context attached.
+- confirm this year's revenue;
+- send the latest claims experience;
+- explain what changed since last renewal;
+- provide the supporting document;
+- confirm whether a location, process, or exposure has changed.
 
-The next action depends on the reply.
+Then the reply arrives.
 
-## Chasing information is operational work
+The revenue has no currency. The document is from the wrong year. The recipient only knows half the answer. The old submission contains a figure, but nobody wants to assume it is still current.
 
-This matters because repeated follow-up consumes experienced people's attention without necessarily requiring their judgement.
+At that point, someone has to notice the gap, understand why it matters, work out who can answer it, ask a better question, and keep the answer connected to the original request.
 
-The useful distinction is not simply manual versus automated. It is judgement versus coordination.
+That is not just form filling. It is coordination.
 
-An underwriter should make the underwriting decision. A claims professional should make the claims decision. A broker should advise the client. But much of the coordination around those decisions can be structured: what is missing, who is approved to answer, which source supports the response, how many follow-ups are allowed, and when the request should return to a person.
+## Experienced people spend time on work that is not really judgement
 
-That is the area we are exploring with Insuveo.
+A broker should advise the client and structure the placement. An underwriter should understand the risk and make an underwriting decision. A claims professional should evaluate the claim. A risk manager should decide what matters for the business.
 
-## Good automation should make uncertainty visible
+Yet experienced people often spend part of their day doing something else: chasing, checking, forwarding, reconciling, and reconstructing.
 
-A weak system tries to make every request look complete. A useful system should do the opposite when the evidence is weak.
+The useful distinction for us is not simply manual versus automated. It is **judgement versus coordination**.
 
-If a figure has no period, show that the period is missing. If two documents conflict, preserve both sources and flag the conflict. If the system does not know who can answer the next question, stop rather than guessing.
+The judgement should stay with the insurance professional. The coordination around it can often be made much more structured.
 
-The output should make it easy for a person to understand what has been collected, what remains unresolved, and where every important answer came from.
+For example:
 
-## Start with one repeated request
+1. What exactly is missing?
+2. Who is allowed to answer it?
+3. What did they already send?
+4. What is incomplete or inconsistent?
+5. How many times should we follow up?
+6. When should the request come back to a person?
+7. What source supports the final answer?
 
-The commercial question is whether this pain is frequent and expensive enough to justify new software.
+Those are the kinds of boundaries we are exploring with Insuveo.
 
-That can only be tested with a narrow workflow. Pick one recurring request. Measure the current handling time, number of follow-ups, unanswered items, and handoffs. Then compare it with a controlled workflow where the collection plan is explicit and each action is visible.
+## A good system should be comfortable saying "still missing"
 
-The goal is not to automate insurance judgement. It is to remove avoidable coordination around the judgement.
+One thing I do not want Insuveo to do is make an incomplete request look complete.
 
-That distinction is becoming central to how we think about Insuveo.
+If a figure has no period, the period is still missing. If two documents disagree, both should remain visible. If the system does not know who can answer the next question, that should come back to a person instead of being guessed.
+
+For insurance teams, a polished answer without provenance can create more risk than an obvious gap.
+
+The useful output is therefore not just a summary. It is a working record of what was asked, what came back, where it came from, what changed, and what is still unresolved.
+
+## The best starting point is probably one annoying workflow
+
+I do not think the right way to test this is to automate an entire insurance function.
+
+A better starting point is one workflow your team already finds irritating.
+
+Maybe it is collecting renewal information from commercial clients. Maybe it is an underwriter repeatedly asking for missing risk details. Maybe it is coordinating documents during a claim. Maybe it is a servicing process that lives across three inboxes and a spreadsheet.
+
+Measure how it works today: time spent, number of follow-ups, handoffs, missing items, and how often somebody has to go back through the thread to understand what happened.
+
+Then see whether a more structured collection and follow-up process actually makes the work better.
+
+## If this sounds familiar, I would like to hear the messy version
+
+I am still learning where this problem is painful enough to deserve a product.
+
+So if you work in broking, underwriting, claims, insurance operations, or corporate risk and you have a process that repeatedly gets stuck because somebody is waiting for information, I would genuinely like to understand it.
+
+You do not need to prepare a product brief or a polished use case. Tell me what the team asks for, who gets chased, what usually comes back wrong, and what happens next.
+
+That is more useful to me than a generic conversation about "AI in insurance."
