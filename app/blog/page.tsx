@@ -6,7 +6,7 @@ const demoUrl = 'https://calendar.app.google/gLMwF9C1Gw6SED4S6';
 
 export const metadata: Metadata = {
   title: 'Blog | Insuveo',
-  description: 'Field notes on insurance workflows, information collection, and carefully bounded automation.',
+  description: 'Notes from building Insuveo and studying how insurance teams collect information.',
 };
 
 function PostMeta({ post }: { post: BlogPostMeta }) {
@@ -39,7 +39,7 @@ function Footer() {
     <footer className="footer">
       <div>
         <Link className="wordmark" href="/">insuveo</Link>
-        <p>Create agents for getting insurance workflow data.</p>
+        <p>Data collection agents for insurance teams.</p>
       </div>
       <nav aria-label="Footer navigation">
         <Link href="/">Home</Link>
@@ -59,9 +59,9 @@ export default function BlogPage() {
       <Header />
       <section className="blog-hero">
         <p className="eyebrow">Insuveo field notes</p>
-        <h1>What we are learning about insurance work.</h1>
+        <h1>Notes from building Insuveo.</h1>
         <p className="blog-hero-copy">
-          Working ideas on information collection, human approvals, and the operational loops that sit around insurance decisions.
+          We write about the work around insurance decisions: gathering facts, following up on incomplete answers, and keeping people in control of what gets sent.
         </p>
       </section>
 
@@ -69,7 +69,7 @@ export default function BlogPage() {
         <div className="blog-section-header">
           <div>
             <p className="eyebrow">Latest</p>
-            <h2>Notes from the work</h2>
+            <h2>Latest field note</h2>
           </div>
         </div>
 
@@ -83,7 +83,7 @@ export default function BlogPage() {
                 <h2>{featured.title}</h2>
                 <p>{featured.excerpt}</p>
               </div>
-              <span className="text-link">Read field note →</span>
+              <span className="text-link">Read the field note</span>
             </div>
             <div className="post-visual" aria-hidden={!featured.image}>
               {featured.image ? (
@@ -109,7 +109,7 @@ export default function BlogPage() {
                   <h3>{post.title}</h3>
                   <p>{post.excerpt}</p>
                 </div>
-                <span className="text-link">Read →</span>
+                <span className="text-link">Read the field note</span>
               </Link>
             ))}
           </div>

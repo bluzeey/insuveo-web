@@ -47,7 +47,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <article>
         <header className="article-head">
-          <Link className="article-back" href="/blog">← All field notes</Link>
+          <Link className="article-back" href="/blog">All field notes</Link>
           <div className="post-meta">
             <span>{post.category}</span>
             <span>{formatBlogDate(post.publishedAt)}</span>
@@ -70,8 +70,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <aside className="article-cta">
         <div>
-          <h2>See the workflow, not a slide deck.</h2>
-          <p>Walk through a bounded insurance data-collection agent with us.</p>
+          <h2>Bring a recurring request to the demo.</h2>
+          <p>We can map the people, questions, limits, and review points together.</p>
         </div>
         <a className="button button-primary" href={demoUrl}>Book a demo</a>
       </aside>
@@ -79,7 +79,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <footer className="footer">
         <div>
           <Link className="wordmark" href="/">insuveo</Link>
-          <p>Create agents for getting insurance workflow data.</p>
+          <p>Data collection agents for insurance teams.</p>
         </div>
         <nav aria-label="Footer navigation">
           <Link href="/">Home</Link>

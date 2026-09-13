@@ -35,5 +35,7 @@ imageAlt: "Plain-language description of the image"
 Post content in Markdown.
 ```
 
-`image` and `imageAlt` are optional. When used, keep the image under
-`public/blog`. Before publishing, follow `docs/editorial-policy.md`.
+`image` and `imageAlt` are optional. Images may be original artwork, licensed
+assets, or AI-generated visuals. Store them under `public/blog` and use a
+descriptive filename based on the post slug. Before publishing, follow
+`docs/editorial-policy.md`.

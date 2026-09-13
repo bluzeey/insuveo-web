@@ -1,93 +1,57 @@
 ---
-title: "Why insurance data collection is a workflow, not a form"
-excerpt: "A working thesis on why the information chase around insurance decisions needs context, follow-ups, and visible human control."
+title: "A form rarely finishes an insurance data request"
+excerpt: "Forms collect known fields. Insurance teams still have to clarify incomplete answers, find the right respondent, and keep track of where each fact came from."
 publishedAt: "2026-09-13"
 category: "Field notes"
 author: "Insuveo"
 ---
 
-A large part of insurance work begins with a request for information. It can look simple: collect a few figures, confirm a date, find a document, or ask what changed since the last renewal.
+A commercial insurance request often starts with a small ask. The team may need this year's turnover, a date, a document, or a list of changes since the last renewal. A form is a sensible place to begin because the expected fields are already known.
 
-The obvious software response is a form. Define the fields, send the link, and wait for complete answers.
+The work gets harder after someone replies. A figure arrives without its currency or reporting period. A document answers the first question and raises another. The person who received the form knows part of the answer, while someone in finance or operations has the rest.
 
-But the form is often only the first moment in a longer information loop. The person responding may not know why a question matters. A figure may arrive without its period or unit. A document can answer one question while creating two new ones. The right respondent may change halfway through the work.
+In the workflows we have been studying, the first response often determines the next question. Software that only sends a questionnaire covers the beginning of that process. The team still has to read the answer, notice what is missing, find the right person, follow up, and record the source of the final response.
 
-That is why our current thesis is that insurance data collection should be treated as a **bounded workflow**, not a static form.
+Our current product idea is to support that full request as it changes.
 
-## The request changes as evidence arrives
+## The next question depends on the answer
 
-A static form assumes that the designer knows every useful question in advance. Real operational work is less tidy.
+Consider a commercial renewal where the broker asks for turnover. The client supplies a number but leaves out the currency and period. The broker needs both before the figure can be used. If the next answer points to a material change in the business, the broker may also need a supporting document from another person.
 
-Imagine a team preparing a commercial renewal. It asks for this year's turnover. The reply contains a number, but not the currency or reporting period. A follow-up is now necessary. That answer may reveal a material business change, which means another person needs to supply a supporting document.
-
-The original request has not failed. It has developed.
-
-This pattern appears at different points in an insurance lifecycle: initial information gathering, clarification during review, renewal updates, servicing, and claims handoffs. The details differ, but the loop is recognisable:
+The original request now has more context than it had when the form was sent. That happens during initial information gathering, renewal work, servicing, and claims handoffs. Each workflow asks for different evidence, although the basic sequence is similar:
 
 1. Ask for a fact or document.
-2. Check whether the response answers the actual question.
-3. Identify gaps, inconsistencies, or missing context.
-4. Follow up with the right person inside agreed limits.
-5. Return the information with its source and unresolved items.
+2. Read the reply in the context of the original request.
+3. Record what is missing or inconsistent.
+4. Send a specific follow-up to an approved person.
+5. Return the answer with its source and any open questions.
 
-The useful unit of automation is therefore not "send a questionnaire." It is "complete this information loop without stepping beyond the team's authority."
+An agent supporting this work needs to remember the purpose of the request as well as the fields. It also needs clear limits on who it can contact and what it can ask.
 
-## Context is part of the data
+## An answer needs its context
 
-An answer is useful only when its context travels with it.
+A number by itself may be unusable. The person reviewing it may need the unit, period, source document, respondent, and date. Those details help another team member understand whether the answer belongs in the submission or whether it still needs review.
 
-For a collection workflow, that context can include:
+Previous documents create another problem. They can save time during a renewal, but an old answer should not silently become a current fact. The workflow needs a way to record whether a detail changed, stayed the same, or remains unknown. It should also preserve the evidence behind that status.
 
-- the purpose of the request;
-- who is allowed to answer;
-- the time period and units that make a figure meaningful;
-- which previous documents may be used as background;
-- how many reminders are permitted;
-- where the agent must stop and ask a human;
-- the source for every returned fact.
+This changes what the product has to store. A collection run needs the request, its purpose, the approved respondents, the source context, the permitted follow-up, and the expected output. It also needs an activity record so the team can see what happened without reconstructing the thread from several inboxes.
 
-Without this context, faster collection can simply produce faster ambiguity.
+Faster collection has little value when the result is still ambiguous. The returned information should show which questions were answered, where each answer came from, and what the team still needs to resolve.
 
-This is especially important when old information is available. Previous submissions and documents can reduce repeated work, but they should not silently become current facts. A renewal workflow should be able to say "unchanged," "changed," or "still unknown"—and preserve the evidence behind that status.
+## The team should see and approve the plan
 
-## Automation needs a visible boundary
+Insurance professionals remain responsible for underwriting, claims, and coverage decisions. Insuveo is being designed for the collection work around those decisions.
 
-The aim is not to let an agent make underwriting, claims, or coverage decisions. Those decisions belong to qualified people working within their organisation's authority.
+A user describes the missing information in plain English. Insuveo turns it into a plan with the intended respondent, questions, source material, contact method, follow-up limit, and delivery format. The user reviews that plan before the agent contacts anyone.
 
-The narrower opportunity is to reduce the mechanical chase around those decisions. A team should be able to describe a request in plain English, review the plan, approve any outbound contact, and receive a structured response pack.
+The run pauses when it cannot identify the contact or when a reply creates a question outside the approved scope. It records the uncertainty instead of filling the gap with an inference. These limits matter because a polished summary can hide weak source material if the system does not show its work.
 
-A well-bounded run should make seven things visible:
+The interface should make the original request, current status, next permitted action, remaining gaps, and sources easy to inspect. A team can then decide whether to continue the run, change the question, or handle the issue themselves.
 
-- the original purpose;
-- the approved respondent;
-- the questions being asked;
-- the current status;
-- the next permitted action;
-- the remaining gaps;
-- the sources behind each answer.
+## We still need to test the economics
 
-If a contact is ambiguous, the run should stop. If the response creates a question outside the approved scope, the run should stop. If the system cannot distinguish a supported fact from an inference, it should show that uncertainty rather than smoothing it away.
+This direction comes from workflow research. It does not yet establish which team will buy the product or how much time the product can save.
 
-These stops are not a weakness. They are part of the product.
+We still need to find a narrow workflow that repeats often enough to justify a new tool. The buyer has to care about the delay or rework, have authority to change the process, and be willing to use production-quality data in a pilot. We also need to learn whether better source tracking matters enough on its own or whether time saved will drive the purchase.
 
-## What still needs to be proven
-
-This is a working product thesis, not a claim that every insurance team has the same problem or will buy the same solution.
-
-Several questions remain open:
-
-- Which specific teams repeat these loops frequently enough for the problem to be urgent?
-- Where does missing or delayed information create measurable operational cost?
-- Who owns the budget and the authority to change the workflow?
-- Can a pilot use production-quality data without creating unacceptable security or compliance risk?
-- Will teams pay for reduced handling time, better information quality, or both?
-
-Positive conversations are not validation. A useful pilot must show that the workflow repeats, that the buyer cares about the outcome, and that the product can operate safely with real constraints.
-
-## The practical thesis
-
-The practical idea behind Insuveo is simple: let insurance professionals create controlled data-collection agents in plain English.
-
-The agent can begin with a form, continue through email clarification, or enter later when a missing fact blocks the work. It uses approved context, takes only approved actions, and returns answers with gaps and sources. The professional remains responsible for the insurance judgment.
-
-If this works, the value will not come from making a form slightly easier to send. It will come from preserving the full information loop—from the first request to a response that another person can actually trust and use.
+Conversations help us find the right questions, but they do not measure the result. The first useful pilot would take one recurring request, record the current handling time and unanswered items, and compare that process with an approved Insuveo run. Until then, the product direction remains a hypothesis.
