@@ -42,7 +42,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <Link href="/#product">Product</Link>
           <Link href="/#agents">Workflows</Link>
           <Link className="blog-nav-current" href="/blog">Blog</Link>
-          <a href={demoUrl}>Share a workflow</a>
+          <a className="button button-primary nav-cta" href={demoUrl}>Book a demo</a>
         </nav>
       </header>
 
@@ -88,7 +88,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <nav aria-label="Footer navigation">
           <Link href="/">Home</Link>
           <Link href="/blog">Blog</Link>
-          <a href={demoUrl}>Share a workflow</a>
+          <a href={demoUrl}>Book a demo</a>
         </nav>
       </footer>
     </main>
