@@ -1,4 +1,5 @@
 const demoUrl = 'https://calendar.app.google/gLMwF9C1Gw6SED4S6';
+const linkedinUrl = 'https://www.linkedin.com/in/sahil-maheshwari/';
 
 const agentTypes = [
   {
@@ -59,6 +60,7 @@ export default function MarketingPage() {
           <a href="#agents">Agents</a>
           <a href="#process">Process</a>
           <a href="#safety">Safety</a>
+          <a href="#founder">Founder</a>
           <a href="/blog">Blog</a>
           <a href={demoUrl}>Book demo</a>
         </nav>
@@ -159,6 +161,22 @@ export default function MarketingPage() {
         </div>
       </section>
 
+      <section className="section split muted-section" id="founder">
+        <div>
+          <p className="eyebrow">About the founder</p>
+          <h2>I&apos;m Sahil Maheshwari. I&apos;m building Insuveo by starting with the workflow, not the AI demo.</h2>
+        </div>
+        <div>
+          <p>
+            I&apos;m a product-focused engineer and founder. Before Insuveo, I built AI products and research workflows used at meaningful scale. With Insuveo, I&apos;m spending time with brokers, underwriters, claims teams, insurance operators, and corporate buyers to understand where information gets lost, delayed, or repeatedly chased.
+          </p>
+          <p>
+            The goal is simple: find a narrow insurance workflow where better collection and follow-up creates measurable value, then build the product around that reality.
+          </p>
+          <a className="text-link" href={linkedinUrl} target="_blank" rel="noreferrer">Connect with Sahil on LinkedIn</a>
+        </div>
+      </section>
+
       <section className="cta-section" id="demo">
         <p className="eyebrow">Demo</p>
         <h2>Bring one recurring information request to the demo.</h2>
@@ -176,6 +194,7 @@ export default function MarketingPage() {
           <a href="#agents">Agents</a>
           <a href="#process">Process</a>
           <a href="#safety">Safety</a>
+          <a href="#founder">Founder</a>
           <a href="/blog">Blog</a>
           <a href={demoUrl}>Book demo</a>
         </nav>
