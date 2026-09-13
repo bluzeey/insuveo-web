@@ -6,8 +6,8 @@ const demoUrl = 'https://calendar.app.google/gLMwF9C1Gw6SED4S6';
 const linkedinUrl = 'https://www.linkedin.com/in/sahil-maheshwari/';
 
 export const metadata: Metadata = {
-  title: 'Blog | Insuveo',
-  description: 'Notes from building Insuveo and studying how insurance teams collect information.',
+  title: 'Insurance Workflow Notes | Insuveo',
+  description: 'Field notes on the operational work around broking, underwriting, renewals, claims, and insurance data collection.',
 };
 
 function PostMeta({ post }: { post: BlogPostMeta }) {
@@ -26,11 +26,11 @@ function Header() {
       <Link className="wordmark" href="/">insuveo</Link>
       <nav aria-label="Primary navigation">
         <Link href="/#product">Product</Link>
-        <Link href="/#agents">Agents</Link>
-        <Link href="/#process">Process</Link>
+        <Link href="/#agents">Workflows</Link>
+        <Link href="/#process">How it works</Link>
         <Link href="/#founder">Founder</Link>
         <Link className="blog-nav-current" href="/blog">Blog</Link>
-        <a href={demoUrl}>Book demo</a>
+        <a href={demoUrl}>Share a workflow</a>
       </nav>
     </header>
   );
@@ -41,13 +41,13 @@ function Footer() {
     <footer className="footer">
       <div>
         <Link className="wordmark" href="/">insuveo</Link>
-        <p>Data collection agents for insurance teams.</p>
+        <p>Notes on the work around insurance decisions.</p>
       </div>
       <nav aria-label="Footer navigation">
         <Link href="/">Home</Link>
         <Link href="/#founder">Founder</Link>
         <Link href="/blog">Blog</Link>
-        <a href={demoUrl}>Book demo</a>
+        <a href={demoUrl}>Share a workflow</a>
       </nav>
     </footer>
   );
@@ -61,23 +61,27 @@ export default function BlogPage() {
     <main className="blog-shell">
       <Header />
       <section className="blog-hero">
-        <p className="eyebrow">Insuveo field notes</p>
-        <h1>Notes from building Insuveo.</h1>
+        <p className="eyebrow">Insurance workflow notes</p>
+        <h1>The work between the client question and the insurance decision.</h1>
         <p className="blog-hero-copy">
-          We write about the work around insurance decisions: gathering facts, following up on incomplete answers, and keeping people in control of what gets sent.
+          These are notes for brokers, underwriters, claims professionals, operations teams, and anyone who has had to chase a missing document, clarify an answer, compare what changed at renewal, or reconstruct context from a long email thread. We are writing about those workflows because that is where we are building Insuveo.
         </p>
+        <div className="hero-actions">
+          <a className="button button-primary" href={demoUrl}>Tell us what your team keeps chasing</a>
+          <a className="button button-secondary" href={linkedinUrl} target="_blank" rel="noreferrer">Message Sahil</a>
+        </div>
       </section>
 
       <section className="blog-section">
         <div className="blog-section-header">
           <div>
             <p className="eyebrow">Latest</p>
-            <h2>Latest field note</h2>
+            <h2>From recent insurance workflow research</h2>
           </div>
         </div>
 
         {!featured ? (
-          <p className="empty-blog">The first field note is being prepared.</p>
+          <p className="empty-blog">The first insurance workflow note is being prepared.</p>
         ) : (
           <Link className="featured-post" href={`/blog/${featured.slug}`}>
             <div className="featured-post-copy">
@@ -86,7 +90,7 @@ export default function BlogPage() {
                 <h2>{featured.title}</h2>
                 <p>{featured.excerpt}</p>
               </div>
-              <span className="text-link">Read the field note</span>
+              <span className="text-link">Read the note</span>
             </div>
             <div className="post-visual" aria-hidden={!featured.image}>
               {featured.image ? (
@@ -102,7 +106,7 @@ export default function BlogPage() {
       {morePosts.length > 0 && (
         <section className="blog-section">
           <div className="blog-section-header">
-            <h2>More field notes</h2>
+            <h2>More notes from the field</h2>
           </div>
           <div className="post-grid">
             {morePosts.map((post) => (
@@ -112,7 +116,7 @@ export default function BlogPage() {
                   <h3>{post.title}</h3>
                   <p>{post.excerpt}</p>
                 </div>
-                <span className="text-link">Read the field note</span>
+                <span className="text-link">Read the note</span>
               </Link>
             ))}
           </div>
@@ -121,17 +125,17 @@ export default function BlogPage() {
 
       <section className="section split muted-section">
         <div>
-          <p className="eyebrow">About the writer</p>
-          <h2>Sahil Maheshwari is building Insuveo through insurance workflow research.</h2>
+          <p className="eyebrow">Why I am writing these</p>
+          <h2>I want to understand the parts of insurance work that look small from the outside and take hours on the inside.</h2>
         </div>
         <div>
           <p>
-            I&apos;m a product-focused engineer and founder. These notes document what I&apos;m learning from conversations with insurance professionals and from turning those observations into small, testable product hypotheses.
+            I&apos;m Sahil Maheshwari, the founder of Insuveo. My background is in software and AI, so I am deliberately spending time learning the operational reality from people who actually do the work: brokers, underwriters, claims teams, insurance operations, and corporate risk teams.
           </p>
           <p>
-            I&apos;m especially interested in the operational layer around insurance decisions: collecting facts, resolving missing information, preserving source context, and designing useful boundaries for AI agents.
+            If a post sounds like a workflow you deal with, or gets something wrong, I would like to hear from you. You do not need to prepare anything. A messy email thread, an awkward handoff, or a process your team complains about is enough context to start.
           </p>
-          <a className="text-link" href={linkedinUrl} target="_blank" rel="noreferrer">Connect with me on LinkedIn</a>
+          <a className="text-link" href={linkedinUrl} target="_blank" rel="noreferrer">Send me a note on LinkedIn</a>
         </div>
       </section>
 
