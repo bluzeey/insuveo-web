@@ -1,57 +1,92 @@
 ---
-title: "The hidden cost of an insurance handoff is lost context"
-excerpt: "Insurance work often crosses clients, brokers, finance teams, underwriters, and claims teams. The handoff gets expensive when the next person receives an answer without the context needed to trust or use it."
+title: "The expensive part of an insurance handoff is making the next person reconstruct the story"
+excerpt: "A client, broker, underwriter, claims team, lawyer, or surveyor may all touch the same request. The handoff gets expensive when the answer moves forward but the context does not."
 publishedAt: "2026-09-11"
-category: "Workflow research"
+category: "Insurance operations"
 author: "Sahil Maheshwari"
 ---
 
-Insurance workflows are full of handoffs.
+Insurance work moves between people constantly.
 
-A client sends information to a broker. The broker prepares a submission for an insurer. An underwriter asks for clarification. The request goes back through the broker to someone in finance or operations. In claims, the chain can include the insured, broker, insurer, lawyers, surveyors, and other specialists.
+A client sends information to a broker. The broker builds a submission. An underwriter asks a follow-up. The broker goes back to the client. The client forwards the question to finance or operations. In a claim, the chain can include the insured, broker, insurer, lawyer, surveyor, repairer, and other specialists.
 
-Moving information between people is normal. The problem starts when the context does not move with it.
+None of that is unusual.
 
-## A correct answer can still be unusable
+The frustrating part is what happens when the next person receives the answer but not the story behind it.
 
-Suppose someone replies with a turnover figure. The number may be correct, but the next person may still need to know the reporting period, currency, business entity, source document, and who supplied it.
+## "We already sent that" is usually a context problem
 
-Without that context, the answer creates another round of questions.
+Imagine the client has already provided a turnover figure.
 
-The same thing happens with documents. A file can look relevant while being from the wrong year. A previous submission can contain a useful fact, but it may no longer represent the current risk. A broker may know why an answer changed, while the underwriter only sees the final value.
+The underwriter still needs to know the currency, reporting period, business entity, or whether the number is actual or projected. From the client's perspective, the question has been answered. From the underwriter's perspective, it has not.
 
-The handoff succeeded technically, but failed operationally.
+Both can be right.
 
-## Better collection should reduce reconstruction work
+The same thing happens with documents. A file was supplied, but it is from the wrong year. A loss schedule exists, but nobody knows whether it is final. A previous submission contains the information, but nobody has confirmed that it is still current.
 
-A lot of insurance coordination is reconstruction.
+The information moved. The context did not.
 
-Someone opens an old email thread to understand why a figure changed. Another person searches for the attachment behind a statement. A team member asks a colleague whether a client already answered a question. The information exists, but its relationship to the request is unclear.
+That is when another email gets sent, another call gets made, and somebody says, "Can you please resend the latest version?"
 
-That suggests a useful product principle: collect the answer together with the context needed by the next person.
+## Insurance teams spend a surprising amount of time reconstructing history
 
-For a data collection workflow, that can mean storing the question, respondent, answer, date, source, unresolved gaps, and any clarification that changed the meaning of the original response.
+A broker searches an old thread to understand why a number changed.
 
-The goal is not to create a larger database. It is to make the handoff self-explanatory.
+An underwriter opens several attachments to work out which schedule is current.
 
-## The next person should not need the whole inbox
+A claims professional tries to determine whether a document was requested, received, reviewed, or simply forwarded.
 
-An operator taking over a request should be able to understand its current state without reading every message that came before it.
+An operator asks a colleague, "Did the client already answer this?"
 
-They should see what was originally requested, what has been answered, which answers are supported, what changed, and what still needs attention.
+The information may already exist. What is missing is a reliable record of how that information relates to the request.
 
-That is especially important when work moves between teams. The person receiving the handoff may have less historical context than the person sending it.
+That suggests a fairly practical product principle: **when you collect the answer, collect enough context for the next person to use it.**
 
-A concise, source-linked record can reduce the amount of tacit knowledge required to continue the workflow.
+For a working insurance request, that could mean keeping together:
 
-## Handoffs are a useful place to test automation
+- the original question;
+- the respondent;
+- the answer;
+- the date;
+- the supporting source or document;
+- any clarification that changed the meaning;
+- what is still unresolved.
 
-We are interested in handoffs because they create measurable operational work without requiring the system to make the insurance decision itself.
+Not because insurance teams need another database, but because the next person should not need the whole inbox.
 
-A narrow pilot could track one recurring request across a client and insurance team. Measure how many times the request changes hands, how often clarification is needed, how long it takes to reconstruct context, and how many unanswered items remain when the submission moves forward.
+## A good handoff should be understandable in a minute
 
-Then test whether a structured collection workflow reduces those costs.
+If somebody takes over a request tomorrow, what do they need to know?
 
-The value of an agent may not be that it answers the insurance question. It may be that it carries the right context from one person to the next, notices what is missing, and makes the remaining uncertainty obvious.
+Probably not every message ever sent.
 
-That is a smaller claim than autonomous insurance operations. It is also much easier to test.
+They need the current state:
+
+1. What were we trying to get?
+2. What has come back?
+3. Which answers are usable?
+4. What changed from the previous information?
+5. What still needs a person to decide or clarify?
+6. Where did each important fact come from?
+
+That is the level of continuity I think software should help create.
+
+## This is also a safer place to apply AI
+
+A lot of "AI in insurance" discussion jumps straight to decision-making.
+
+I am more interested in the work around the decision first.
+
+An AI system does not need to decide whether to write the risk to notice that a requested document is still missing. It does not need to determine liability to keep track of which evidence has been received. It does not need to replace the broker to remember that the client has already answered a question and carry the source forward.
+
+Those are smaller jobs. They are also easier to inspect and easier to measure.
+
+## Where does context get lost in your workflow?
+
+This is one of the areas we are exploring with Insuveo, and I would like to understand where the real handoff pain sits.
+
+If you work in broking, underwriting, claims, servicing, or insurance operations, think about the last time somebody on your team had to dig through an inbox just to understand what had already happened.
+
+What were they looking for? Why was it hard to find? What would the next person have needed in order to continue without asking the same questions again?
+
+That kind of example is exactly the workflow I want to learn from.
