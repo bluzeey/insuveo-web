@@ -62,7 +62,7 @@ export default function MarketingPage() {
           <a href="#safety">Control</a>
           <a href="#founder">Founder</a>
           <a href="/blog">Blog</a>
-          <a href={demoUrl}>Share a workflow</a>
+          <a className="button button-primary nav-cta" href={demoUrl}>Book a demo</a>
         </nav>
       </header>
 
@@ -196,7 +196,7 @@ export default function MarketingPage() {
           <a href="#safety">Control</a>
           <a href="#founder">Founder</a>
           <a href="/blog">Blog</a>
-          <a href={demoUrl}>Share a workflow</a>
+          <a href={demoUrl}>Book a demo</a>
         </nav>
       </footer>
     </main>
