@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { formatBlogDate, getBlogPosts, type BlogPostMeta } from '../../lib/blog';
 
 const demoUrl = 'https://calendar.app.google/gLMwF9C1Gw6SED4S6';
+const linkedinUrl = 'https://www.linkedin.com/in/sahil-maheshwari/';
 
 export const metadata: Metadata = {
   title: 'Blog | Insuveo',
@@ -27,6 +28,7 @@ function Header() {
         <Link href="/#product">Product</Link>
         <Link href="/#agents">Agents</Link>
         <Link href="/#process">Process</Link>
+        <Link href="/#founder">Founder</Link>
         <Link className="blog-nav-current" href="/blog">Blog</Link>
         <a href={demoUrl}>Book demo</a>
       </nav>
@@ -43,6 +45,7 @@ function Footer() {
       </div>
       <nav aria-label="Footer navigation">
         <Link href="/">Home</Link>
+        <Link href="/#founder">Founder</Link>
         <Link href="/blog">Blog</Link>
         <a href={demoUrl}>Book demo</a>
       </nav>
@@ -115,6 +118,22 @@ export default function BlogPage() {
           </div>
         </section>
       )}
+
+      <section className="section split muted-section">
+        <div>
+          <p className="eyebrow">About the writer</p>
+          <h2>Sahil Maheshwari is building Insuveo through insurance workflow research.</h2>
+        </div>
+        <div>
+          <p>
+            I&apos;m a product-focused engineer and founder. These notes document what I&apos;m learning from conversations with insurance professionals and from turning those observations into small, testable product hypotheses.
+          </p>
+          <p>
+            I&apos;m especially interested in the operational layer around insurance decisions: collecting facts, resolving missing information, preserving source context, and designing useful boundaries for AI agents.
+          </p>
+          <a className="text-link" href={linkedinUrl} target="_blank" rel="noreferrer">Connect with me on LinkedIn</a>
+        </div>
+      </section>
 
       <Footer />
     </main>
