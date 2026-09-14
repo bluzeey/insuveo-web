@@ -7,8 +7,16 @@ const demoUrl = 'https://calendar.app.google/gLMwF9C1Gw6SED4S6';
 const linkedinUrl = 'https://www.linkedin.com/in/sahil-maheshwari/';
 
 export const metadata: Metadata = {
-  title: 'Insurance Workflow Notes | Insuveo',
+  title: 'Insurance Workflow Notes',
   description: 'Field notes on the operational work around broking, underwriting, renewals, claims, and insurance data collection.',
+  alternates: { canonical: '/blog' },
+  keywords: ['insurance workflow', 'commercial insurance operations', 'underwriting', 'claims', 'insurance data collection'],
+  openGraph: {
+    type: 'website',
+    title: 'Insurance Workflow Notes',
+    description: 'Field notes on broking, underwriting, renewals, claims, and insurance data collection.',
+    url: '/blog',
+  },
 };
 
 function PostMeta({ post }: { post: BlogPostMeta }) {
