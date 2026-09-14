@@ -23,9 +23,24 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   if (!post) return {};
 
   return {
-    title: `${post.title} | Insuveo`,
+    title: post.title,
     description: post.excerpt,
-    openGraph: post.image ? { images: [{ url: post.image, alt: post.imageAlt || post.title }] } : undefined,
+    alternates: { canonical: `/blog/${post.slug}` },
+    keywords: [post.category, 'insurance workflows', 'insurance operations', 'Insuveo'],
+    openGraph: {
+      type: 'article',
+      title: post.title,
+      description: post.excerpt,
+      publishedTime: post.publishedAt,
+      authors: [post.author],
+      images: post.image ? [{ url: post.image, alt: post.imageAlt || post.title }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: post.image ? [post.image] : undefined,
+    },
   };
 }
 
@@ -76,13 +91,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
       <aside className="article-cta">
         <div>
-          <h2>Does your team deal with a version of this?</h2>
+          <h2>Is this workflow familiar?</h2>
           <p>
-            I&apos;d rather hear the real workflow than pitch you a generic demo. Show me where the request starts, who gets chased, what usually comes back incomplete, and where your team loses time. If Insuveo can help, we can map a small test around it.
+            Show us where information gets stuck. We&apos;ll map a small, human-reviewed test around the real process.
           </p>
-          <a className="text-link" href={linkedinUrl} target="_blank" rel="noreferrer">Or just message Sahil on LinkedIn</a>
+          <a className="text-link" href={linkedinUrl} target="_blank" rel="noreferrer">Message Sahil on LinkedIn</a>
         </div>
-        <a className="button button-primary" href={demoUrl}>Talk through the workflow</a>
+        <a className="button button-primary" href={demoUrl}>Book a demo</a>
       </aside>
 
       <footer className="footer">

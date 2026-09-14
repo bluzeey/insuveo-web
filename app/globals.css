@@ -106,15 +106,16 @@ p { line-height: 1.6; }
   font-weight: 400;
   letter-spacing: -0.045em;
 }
+.hero h1 { max-width: 760px; margin-bottom: 28px; font-size: clamp(48px, 6.3vw, 82px); }
 .hero-copy {
-  max-width: 780px;
+  max-width: 660px;
   color: #222;
   font-size: 20px;
   font-weight: 300;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
 .hero-panel {
-  padding: 28px;
+  padding: 24px;
   border: 1px solid var(--line);
   background: rgba(255,255,255,0.9);
 }
@@ -141,20 +142,13 @@ p { line-height: 1.6; }
 dl { margin: 0; }
 .hero-panel dl div {
   display: grid;
-  grid-template-columns: 92px 1fr;
+  grid-template-columns: 74px 1fr;
   gap: 12px;
   padding: 12px 0;
   border-top: 1px solid var(--line-soft);
 }
 dt { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
 dd { margin: 0; line-height: 1.45; }
-.panel-demo-button {
-  width: 100%;
-  margin-top: 22px;
-  min-height: 52px;
-  font-size: 17px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.16);
-}
 
 .section {
   padding: 78px max(22px, calc((100vw - 1200px) / 2));
@@ -443,7 +437,8 @@ dd { margin: 0; line-height: 1.45; }
   background: var(--surface-soft);
 }
 .article-cta h2 { margin-bottom: 8px; font-size: 30px; }
-.article-cta p { margin-bottom: 0; color: var(--muted); }
+.article-cta p { max-width: 620px; margin-bottom: 12px; color: var(--muted); }
+.article-cta .button { flex: 0 0 auto; min-width: 142px; white-space: nowrap; }
 
 @media (max-width: 920px) {
   .top-nav { padding: 0 18px; }
