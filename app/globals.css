@@ -7,6 +7,8 @@
   --line-soft: #dedede;
   --surface-soft: #f7f7f4;
   --mint: #3cd9b3;
+  --cream: #ffedbe;
+  --lavender: #e7d4ff;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
   background: var(--canvas);
@@ -92,7 +94,7 @@ p { line-height: 1.6; }
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(340px, 0.8fr);
   gap: 48px;
-  align-items: end;
+  align-items: center;
   padding: 86px max(22px, calc((100vw - 1200px) / 2)) 96px;
   border-bottom: 1px solid var(--line);
   background: linear-gradient(165deg,#fff 54%,#ffedbe 76%,#cdffea 90%,#e7d4ff);
@@ -115,6 +117,18 @@ p { line-height: 1.6; }
   padding: 28px;
   border: 1px solid var(--line);
   background: rgba(255,255,255,0.9);
+}
+.hero-workflow-visual {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 26px;
+}
+.hero-workflow-visual .visual-dash {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1.5;
+  stroke-dasharray: 6 7;
 }
 .hero-panel h2 { font-size: 30px; margin-bottom: 22px; }
 .panel-label,
@@ -156,6 +170,19 @@ dd { margin: 0; line-height: 1.45; }
 }
 .section-heading-row p,
 .split p { color: #222; font-size: 18px; font-weight: 300; }
+.section-visual-wrap {
+  margin-top: 48px;
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+}
+.handoff-visual { display: block; width: 100%; height: auto; }
+.visual-caption {
+  margin: 0;
+  padding: 15px 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
 .muted-section { background: var(--surface-soft); }
 .card-grid { display: grid; border: 1px solid var(--line); }
 .card-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -170,7 +197,10 @@ dd { margin: 0; line-height: 1.45; }
 .mini-card + .mini-card { border-left: 1px solid var(--line); }
 .card p { color: #222; }
 .card strong { display: block; margin-top: 22px; line-height: 1.45; }
-.mini-card { font-size: 18px; line-height: 1.45; }
+.workflow-icon { display: block; width: 58px; height: 58px; margin-bottom: 28px; }
+.mini-card { display: flex; flex-direction: column; justify-content: space-between; font-size: 18px; line-height: 1.45; }
+.mini-card .workflow-icon { margin-bottom: 44px; }
+.review-shield-visual { display: block; width: 100%; max-width: 390px; height: auto; margin-top: 36px; }
 .numbered-list,
 .check-list {
   margin: 0;
@@ -223,10 +253,15 @@ dd { margin: 0; line-height: 1.45; }
 .blog-shell { min-height: 100vh; background: var(--canvas); }
 .blog-nav-current { text-decoration: underline !important; text-underline-offset: 4px; }
 .blog-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(330px, 0.7fr);
+  gap: 54px;
+  align-items: center;
   padding: 92px max(22px, calc((100vw - 1200px) / 2)) 76px;
   border-bottom: 1px solid var(--line);
   background: linear-gradient(165deg, #fff 55%, #ffedbe 77%, #cdffea 91%, #e7d4ff);
 }
+.blog-hero-visual { display: block; width: 100%; height: auto; }
 .blog-hero h1 {
   max-width: 920px;
   margin-bottom: 26px;
@@ -286,37 +321,64 @@ dd { margin: 0; line-height: 1.45; }
   position: relative;
   display: flex;
   min-height: 300px;
-  align-items: flex-end;
   overflow: hidden;
-  padding: 30px;
   border-left: 1px solid var(--line);
-  background:
-    radial-gradient(circle at 74% 26%, rgba(255,255,255,0.95) 0 10%, transparent 10.5%),
-    linear-gradient(145deg, #ffedbe, #cdffea 54%, #e7d4ff);
 }
-.post-visual::before,
-.post-visual::after {
-  position: absolute;
-  content: '';
-  border: 1px solid rgba(0,0,0,0.72);
-}
-.post-visual::before { inset: 18% 17% 35% 23%; }
-.post-visual::after { inset: 34% 31% 19% 9%; background: rgba(255,255,255,0.46); }
-.post-visual span { position: relative; z-index: 1; font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em; }
 .post-image { width: 100%; height: 100%; min-height: inherit; object-fit: cover; }
 .post-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); }
 .post-card {
   display: flex;
-  min-height: 330px;
+  min-height: 520px;
   flex-direction: column;
   justify-content: space-between;
-  padding: 30px;
   color: inherit;
   text-decoration: none;
+  overflow: hidden;
 }
 .post-card + .post-card { border-left: 1px solid var(--line); }
+.post-card > div:not(.blog-post-visual) { padding: 27px 27px 0; }
+.post-card > .text-link { padding: 22px 27px 29px; }
+.post-card-image { width: 100%; height: 190px; border-bottom: 1px solid var(--line); object-fit: cover; }
 .post-card h3 { margin: 16px 0; font-size: 30px; }
 .post-card p { color: #333; }
+.blog-post-visual {
+  --visual-bg: var(--cream);
+  --visual-accent: var(--mint);
+  --visual-sun: var(--lavender);
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  overflow: hidden;
+}
+.post-card .blog-post-visual { height: 190px; min-height: 190px; border-bottom: 1px solid var(--line); }
+.blog-post-visual svg { display: block; width: 100%; height: 100%; }
+.blog-post-visual > span {
+  position: absolute;
+  right: 18px;
+  bottom: 15px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.88);
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.visual-approval { --visual-bg: #e7d4ff; --visual-accent: #cdffea; --visual-sun: #ffedbe; }
+.visual-underwriting { --visual-bg: #cdffea; --visual-accent: #ffedbe; --visual-sun: #e7d4ff; }
+.visual-renewal { --visual-bg: #ffedbe; --visual-accent: #e7d4ff; --visual-sun: #cdffea; }
+.visual-handoff { --visual-bg: #d9e8ff; --visual-accent: #ffedbe; --visual-sun: #cdffea; }
+.visual-missing { --visual-bg: #f4ddd4; --visual-accent: #ffedbe; --visual-sun: #e7d4ff; }
+.visual-collection { --visual-bg: #d8f3ea; --visual-accent: #e7d4ff; --visual-sun: #ffedbe; }
+.visual-ground { fill: var(--visual-bg); }
+.visual-sun { fill: var(--visual-sun); stroke: #000; stroke-width: 1.5; }
+.visual-white { fill: #fff; stroke: #000; stroke-width: 1.5; }
+.visual-accent { fill: var(--visual-accent); stroke: #000; stroke-width: 1.5; }
+.visual-dark { fill: #000; stroke: #000; stroke-width: 1.5; }
+.visual-stroke { fill: none; stroke: #000; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.visual-light-stroke { fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.visual-dashed { fill: none; stroke: #000; stroke-width: 1.5; stroke-dasharray: 7 7; }
 .empty-blog {
   padding: 40px;
   border: 1px solid var(--line);
@@ -338,6 +400,8 @@ dd { margin: 0; line-height: 1.45; }
 .article-dek { max-width: 760px; margin-bottom: 26px; color: #333; font-size: 21px; font-weight: 300; }
 .article-image-wrap { max-width: 1040px; margin: 52px auto 0; border: 1px solid var(--line); }
 .article-image-wrap img { display: block; width: 100%; height: auto; }
+.article-default-visual { max-width: 920px; height: 430px; margin: 52px auto 0; border: 1px solid var(--line); }
+.article-default-visual .blog-post-visual { min-height: 100%; }
 .article-body {
   max-width: 760px;
   margin: 0 auto;
@@ -388,6 +452,7 @@ dd { margin: 0; line-height: 1.45; }
   .top-nav nav a:nth-child(2),
   .top-nav nav a:nth-child(3) { display: none; }
   .hero,
+  .blog-hero,
   .section-heading-row,
   .split { grid-template-columns: 1fr; gap: 28px; }
   .hero,
@@ -409,15 +474,19 @@ dd { margin: 0; line-height: 1.45; }
   .blog-section,
   .article-head { padding-left: 20px; padding-right: 20px; }
   .featured-post { grid-template-columns: 1fr; }
+  .blog-hero-visual { width: min(100%, 430px); margin: 0 auto; }
   .post-visual { border-top: 1px solid var(--line); border-left: 0; }
   .post-grid { grid-template-columns: 1fr; }
   .post-card + .post-card { border-top: 1px solid var(--line); border-left: 0; }
   .article-cta { margin-right: 20px; margin-left: 20px; align-items: flex-start; flex-direction: column; }
+  .article-default-visual { height: min(430px, 58vw); }
 }
 
 @media (max-width: 560px) {
   .blog-section-header { align-items: flex-start; flex-direction: column; }
   .featured-post { min-height: 0; }
   .featured-post-copy { min-height: 380px; }
+  .post-card { min-height: 490px; }
+  .section-visual-wrap { margin-top: 34px; }
   .article-back { margin-bottom: 38px; }
 }

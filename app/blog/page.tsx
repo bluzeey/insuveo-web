@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { BlogHeroVisual, BlogPostVisual } from '../../components/insurance-visuals';
 import { formatBlogDate, getBlogPosts, type BlogPostMeta } from '../../lib/blog';
 
 const demoUrl = 'https://calendar.app.google/gLMwF9C1Gw6SED4S6';
@@ -61,15 +62,18 @@ export default function BlogPage() {
     <main className="blog-shell">
       <Header />
       <section className="blog-hero">
-        <p className="eyebrow">Insurance workflow notes</p>
-        <h1>The work between the client question and the insurance decision.</h1>
-        <p className="blog-hero-copy">
-          These are notes for brokers, underwriters, claims professionals, operations teams, and anyone who has had to chase a missing document, clarify an answer, compare what changed at renewal, or reconstruct context from a long email thread. We are writing about those workflows because that is where we are building Insuveo.
-        </p>
-        <div className="hero-actions">
-          <a className="button button-primary" href={demoUrl}>Tell us what your team keeps chasing</a>
-          <a className="button button-secondary" href={linkedinUrl} target="_blank" rel="noreferrer">Message Sahil</a>
+        <div>
+          <p className="eyebrow">Insurance workflow notes</p>
+          <h1>The work between the client question and the insurance decision.</h1>
+          <p className="blog-hero-copy">
+            These are notes for brokers, underwriters, claims professionals, operations teams, and anyone who has had to chase a missing document, clarify an answer, compare what changed at renewal, or reconstruct context from a long email thread. We are writing about those workflows because that is where we are building Insuveo.
+          </p>
+          <div className="hero-actions">
+            <a className="button button-primary" href={demoUrl}>Tell us what your team keeps chasing</a>
+            <a className="button button-secondary" href={linkedinUrl} target="_blank" rel="noreferrer">Message Sahil</a>
+          </div>
         </div>
+        <BlogHeroVisual />
       </section>
 
       <section className="blog-section">
@@ -92,11 +96,11 @@ export default function BlogPage() {
               </div>
               <span className="text-link">Read the note</span>
             </div>
-            <div className="post-visual" aria-hidden={!featured.image}>
+            <div className="post-visual">
               {featured.image ? (
                 <img className="post-image" src={featured.image} alt={featured.imageAlt || ''} />
               ) : (
-                <span>Insuveo / {featured.category}</span>
+                <BlogPostVisual slug={featured.slug} category={featured.category} />
               )}
             </div>
           </Link>
@@ -111,6 +115,11 @@ export default function BlogPage() {
           <div className="post-grid">
             {morePosts.map((post) => (
               <Link className="post-card" href={`/blog/${post.slug}`} key={post.slug}>
+                {post.image ? (
+                  <img className="post-card-image" src={post.image} alt={post.imageAlt || ''} />
+                ) : (
+                  <BlogPostVisual slug={post.slug} category={post.category} />
+                )}
                 <div>
                   <PostMeta post={post} />
                   <h3>{post.title}</h3>

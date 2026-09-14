@@ -1,20 +1,25 @@
+import { HandoffVisual, HeroWorkflowVisual, ReviewShieldVisual, WorkflowIcon } from '../components/insurance-visuals';
+
 const demoUrl = 'https://calendar.app.google/gLMwF9C1Gw6SED4S6';
 const linkedinUrl = 'https://www.linkedin.com/in/sahil-maheshwari/';
 
 const agentTypes = [
   {
+    icon: 'collection' as const,
     title: 'Client information collection',
     timing: 'Before placement or renewal',
     text: 'Collects the facts and documents your team already knows it needs, then keeps track of what is still missing.',
     output: 'A clear list of what came back, where it came from, and what still needs attention.',
   },
   {
+    icon: 'clarification' as const,
     title: 'Clarification follow-up',
     timing: 'When an answer is incomplete',
     text: 'Follows up when a figure has no period, a document is outdated, or an answer creates another obvious question.',
     output: 'The clarification alongside the original answer, so the context does not disappear in the email thread.',
   },
   {
+    icon: 'renewal' as const,
     title: 'Renewal change check',
     timing: 'During renewal',
     text: 'Uses last year as context, asks what changed, and avoids quietly treating old information as current.',
@@ -37,10 +42,10 @@ const safeguards = [
 ];
 
 const audiences = [
-  'Commercial brokers chasing client information before placement',
-  'Underwriters waiting on missing or inconsistent risk details',
-  'Claims teams coordinating documents, insureds, lawyers, and specialists',
-  'Insurance operations teams managing repeated follow-ups across email and spreadsheets',
+  { icon: 'broker' as const, text: 'Commercial brokers chasing client information before placement' },
+  { icon: 'underwriter' as const, text: 'Underwriters waiting on missing or inconsistent risk details' },
+  { icon: 'claims' as const, text: 'Claims teams coordinating documents, insureds, lawyers, and specialists' },
+  { icon: 'operations' as const, text: 'Insurance operations teams managing repeated follow-ups across email and spreadsheets' },
 ];
 
 const metrics = [
@@ -82,6 +87,7 @@ export default function MarketingPage() {
           </div>
         </div>
         <div className="hero-panel" aria-label="Example insurance workflow">
+          <HeroWorkflowVisual />
           <p className="panel-label">A familiar renewal problem</p>
           <h2>The client replied, but the renewal still cannot move forward.</h2>
           <dl>
@@ -102,6 +108,10 @@ export default function MarketingPage() {
             The client sent most of the form, but two answers are unusable. The supporting document is from last year. The underwriter asks one more question and the broker has to find the right person at the insured. None of this is the core judgement, but it is real work. Insuveo is focused on making that coordination easier to run and easier to inspect.
           </p>
         </div>
+        <div className="section-visual-wrap">
+          <HandoffVisual />
+          <p className="visual-caption">Keep each request, answer, source, and unresolved item connected through the handoff.</p>
+        </div>
       </section>
 
       <section className="section" id="agents">
@@ -112,6 +122,7 @@ export default function MarketingPage() {
         <div className="card-grid three">
           {agentTypes.map((agent) => (
             <article className="card" key={agent.title}>
+              <WorkflowIcon kind={agent.icon} />
               <p className="card-kicker">{agent.timing}</p>
               <h3>{agent.title}</h3>
               <p>{agent.text}</p>
@@ -135,6 +146,7 @@ export default function MarketingPage() {
         <div>
           <p className="eyebrow">Human control</p>
           <h2>The aim is less chasing, not autonomous insurance decisions.</h2>
+          <ReviewShieldVisual />
         </div>
         <ul className="check-list">
           {safeguards.map((item) => <li key={item}>{item}</li>)}
@@ -147,7 +159,12 @@ export default function MarketingPage() {
           <h2>If part of your job is getting the right information from the right person, we would like to understand it.</h2>
         </div>
         <div className="card-grid four">
-          {audiences.map((audience) => <article className="mini-card" key={audience}>{audience}</article>)}
+          {audiences.map((audience) => (
+            <article className="mini-card" key={audience.text}>
+              <WorkflowIcon kind={audience.icon} />
+              <span>{audience.text}</span>
+            </article>
+          ))}
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { BlogPostVisual } from '../../../components/insurance-visuals';
 import { Markdown } from '../../../components/markdown';
 import { formatBlogDate, getBlogPost, getBlogPosts } from '../../../lib/blog';
 
@@ -57,9 +58,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <h1>{post.title}</h1>
           <p className="article-dek">{post.excerpt}</p>
           <p className="post-meta">By {post.author}</p>
-          {post.image && (
+          {post.image ? (
             <div className="article-image-wrap">
               <img src={post.image} alt={post.imageAlt || ''} />
+            </div>
+          ) : (
+            <div className="article-default-visual">
+              <BlogPostVisual slug={post.slug} category={post.category} />
             </div>
           )}
         </header>
