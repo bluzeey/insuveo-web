@@ -44,6 +44,7 @@ After drafting, read the post once for meaning and once for voice. Check that no
 - Never recreate a contact, customer, private document, company workflow, or identifiable person. Do not use customer marks or third-party logos.
 - Save the file as `public/blog/<slug>-cover.png` or `public/blog/<slug>-cover.webp`. Add the matching `image` and `imageAlt` fields to the post frontmatter.
 - Check the image at desktop and mobile sizes. If generation or upload fails, publish the article with the site's built-in visual.
+- Every article already receives a topic-based SVG visual from its slug and category. Add a generated cover only when it communicates something more specific than that fallback.
 
 ## Pre-publication checks
 
