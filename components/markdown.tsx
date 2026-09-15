@@ -2,6 +2,15 @@ import type { ReactNode } from 'react';
 
 const inlinePattern = /(\[[^\]]+\]\((?:https?:\/\/|\/)[^)]+\)|\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)/g;
 
+function headingId(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/\[[^\]]+\]\([^)]+\)/g, '')
+    .replace(/[*`]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
 function inline(text: string): ReactNode[] {
   return text.split(inlinePattern).filter(Boolean).map((part, index) => {
     const link = /^\[([^\]]+)\]\(((?:https?:\/\/|\/)[^)]+)\)$/.exec(part);
@@ -57,10 +66,11 @@ export function Markdown({ content }: { content: string }) {
     const heading = /^(#{2,3})\s+(.+)$/.exec(line);
     if (heading) {
       const key = `heading-${index}`;
+      const id = headingId(heading[2]);
       blocks.push(
         heading[1].length === 2
-          ? <h2 key={key}>{inline(heading[2])}</h2>
-          : <h3 key={key}>{inline(heading[2])}</h3>,
+          ? <h2 id={id} key={key}>{inline(heading[2])}</h2>
+          : <h3 id={id} key={key}>{inline(heading[2])}</h3>,
       );
       index += 1;
       continue;

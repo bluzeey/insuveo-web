@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { BlogPostVisual } from '../../../components/insurance-visuals';
 import { Markdown } from '../../../components/markdown';
 import { formatBlogDate, getBlogPost, getBlogPosts } from '../../../lib/blog';
+import { siteUrl } from '../../../lib/site';
 
 const demoUrl = 'https://calendar.app.google/gLMwF9C1Gw6SED4S6';
 const linkedinUrl = 'https://www.linkedin.com/in/sahil-maheshwari/';
@@ -22,23 +23,29 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
   if (!post) return {};
 
+  const title = post.seoTitle || post.title;
+  const description = post.seoDescription || post.excerpt;
+
   return {
-    title: post.title,
-    description: post.excerpt,
+    title,
+    description,
     alternates: { canonical: `/blog/${post.slug}` },
     keywords: [post.category, 'insurance workflows', 'insurance operations', 'Insuveo'],
     openGraph: {
       type: 'article',
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
+      url: `/blog/${post.slug}`,
       publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt,
       authors: [post.author],
+      section: post.category,
       images: post.image ? [{ url: post.image, alt: post.imageAlt || post.title }] : undefined,
     },
     twitter: {
       card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       images: post.image ? [post.image] : undefined,
     },
   };
@@ -50,8 +57,44 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   if (!post) notFound();
 
+  const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
+  const relatedPosts = getBlogPosts()
+    .filter((candidate) => candidate.slug !== post.slug)
+    .sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category))
+    .slice(0, 3);
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.seoDescription || post.excerpt,
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt || post.publishedAt,
+    mainEntityOfPage: canonicalUrl,
+    articleSection: post.category,
+    author: { '@type': 'Person', name: post.author },
+    publisher: { '@type': 'Organization', name: 'Insuveo', url: siteUrl },
+    image: post.image ? new URL(post.image, siteUrl).toString() : undefined,
+  };
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: canonicalUrl },
+    ],
+  };
+
   return (
     <main className="article-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <header className="top-nav">
         <Link className="wordmark" href="/">insuveo</Link>
         <nav aria-label="Primary navigation">
@@ -88,6 +131,22 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <Markdown content={post.content} />
         </div>
       </article>
+
+      {relatedPosts.length > 0 && (
+        <section className="related-posts" aria-labelledby="related-posts-heading">
+          <p className="eyebrow">Continue reading</p>
+          <h2 id="related-posts-heading">Related insurance workflow notes</h2>
+          <div className="related-post-grid">
+            {relatedPosts.map((related) => (
+              <Link href={`/blog/${related.slug}`} key={related.slug}>
+                <span>{related.category}</span>
+                <h3>{related.title}</h3>
+                <p>{related.seoDescription || related.excerpt}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <aside className="article-cta">
         <div>

@@ -4,6 +4,9 @@ excerpt: "A fact may arrive through a form, email, call, message, or document. T
 publishedAt: "2026-09-15"
 category: "Field notes"
 author: "Sahil Maheshwari"
+seoTitle: "Preserving Context Across Insurance Channels"
+seoDescription: "Insurance answers arrive through forms, email, calls, and messages. Learn how a working record can preserve their source, revisions, and status."
+updatedAt: "2026-09-15"
 image: "/blog/an-insurance-answer-should-not-lose-its-channel-cover.webp"
 imageAlt: "Editorial illustration of several communication paths joining a single sourced insurance record"
 ---
