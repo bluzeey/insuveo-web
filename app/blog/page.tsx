@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BlogHeroVisual, BlogPostVisual } from '../../components/insurance-visuals';
 import { formatBlogDate, getBlogPosts, type BlogPostMeta } from '../../lib/blog';
+import { siteUrl } from '../../lib/site';
 
 const demoUrl = 'https://calendar.app.google/gLMwF9C1Gw6SED4S6';
 const linkedinUrl = 'https://www.linkedin.com/in/sahil-maheshwari/';
@@ -65,9 +66,29 @@ function Footer() {
 export default function BlogPage() {
   const posts = getBlogPosts();
   const [featured, ...morePosts] = posts;
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Insurance Workflow Notes',
+    description: metadata.description,
+    url: `${siteUrl}/blog`,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: posts.map((post, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: post.title,
+        url: `${siteUrl}/blog/${post.slug}`,
+      })),
+    },
+  };
 
   return (
     <main className="blog-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
       <Header />
       <section className="blog-hero">
         <div>

@@ -46,6 +46,18 @@ After drafting, read the post once for meaning and once for voice. Check that no
 - Check the image at desktop and mobile sizes. If generation or upload fails, publish the article with the site's built-in visual.
 - Every article already receives a topic-based SVG visual from its slug and category. Add a generated cover only when it communicates something more specific than that fallback.
 
+## Search and discovery
+
+- Write for an insurance professional first. Search terms should appear only where they describe the workflow naturally.
+- Give every post a unique `seoTitle` that describes the specific question or workflow. Keep it concise enough to display with the `| Insuveo` suffix.
+- Give every post a unique `seoDescription` that tells the reader what the article explains. Do not repeat the title or turn it into a sales claim.
+- Use one visible H1, which the article template creates from `title`. Use descriptive H2 and H3 sections in the body and make sure the central words in the title are discussed in the article.
+- Aim for 700 to 1,200 useful words. A shorter post is acceptable when the idea is complete. Never add filler to reach a word count.
+- Link to one or two relevant Insuveo articles when a connection is genuinely useful. The article template also adds related reading automatically.
+- Add `updatedAt` when an existing article changes materially. Keep `publishedAt` unchanged.
+- Use meaningful image alt text. Describe what the image communicates rather than repeating the article title.
+- Do not add social-sharing widgets or repeated keyword variants just to satisfy an automated SEO checker.
+
 ## Pre-publication checks
 
 1. Read every existing filename and title in `content/blog` and reject duplicate or substantially overlapping ideas.
@@ -54,4 +66,6 @@ After drafting, read the post once for meaning and once for voice. Check that no
 4. Confirm that the filename is a lowercase, hyphenated slug and the date uses `YYYY-MM-DD`.
 5. Run the full writing-style check and correct every unsupported addition or missing source detail.
 6. If an image is useful, follow the image rules above and add meaningful alt text.
-7. Add only the new post and its optional image. Do not alter product code during an automated publishing run.
+7. Add a concise `seoTitle` and `seoDescription`; check that neither duplicates an existing post.
+8. Confirm that the main topic appears naturally in the introduction and at least one descriptive section.
+9. Add only the new post and its optional image. Do not alter product code during an automated publishing run.

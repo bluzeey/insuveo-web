@@ -4,6 +4,9 @@ excerpt: "Claims work becomes hard to follow when coverage, cost consent, docume
 publishedAt: "2026-09-14"
 category: "Claims operations"
 author: "Sahil Maheshwari"
+seoTitle: "What Approved Means in an Insurance Claim"
+seoDescription: "A useful claim record shows exactly what was approved, by whom, under which conditions, and what action remains."
+updatedAt: "2026-09-15"
 ---
 
 The word approved looks precise until a claim passes from one person to another.

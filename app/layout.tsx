@@ -34,7 +34,10 @@ export const metadata: Metadata = {
   authors: [{ name: 'Sahil Maheshwari' }],
   creator: 'Sahil Maheshwari',
   alternates: { canonical: '/' },
-  icons: { icon: '/icon.svg' },
+  icons: {
+    icon: '/icon.svg',
+    apple: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
