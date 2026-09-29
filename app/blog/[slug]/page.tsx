@@ -168,6 +168,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <Link href="/">Home</Link>
           <Link href="/blog">Blog</Link>
           <a href={demoUrl}>Book a demo</a>
+          <Link href="/support">Support</Link>
+          <Link href="/privacy">Privacy</Link>
         </nav>
       </footer>
     </main>

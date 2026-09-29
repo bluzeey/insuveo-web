@@ -58,6 +58,8 @@ function Footer() {
         <Link href="/#founder">Founder</Link>
         <Link href="/blog">Blog</Link>
         <a href={demoUrl}>Book a demo</a>
+        <Link href="/support">Support</Link>
+        <Link href="/privacy">Privacy</Link>
       </nav>
     </footer>
   );

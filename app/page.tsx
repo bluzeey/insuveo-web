@@ -299,6 +299,8 @@ export default function MarketingPage() {
           <a href="#founder">Founder</a>
           <a href="/blog">Blog</a>
           <a href={demoUrl}>Book a demo</a>
+          <a href="/support">Support</a>
+          <a href="/privacy">Privacy</a>
         </nav>
       </footer>
     </main>

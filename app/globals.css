@@ -449,6 +449,27 @@ dd { margin: 0; line-height: 1.45; }
 .related-post-grid h3 { margin: 18px 0 14px; font-size: 25px; }
 .related-post-grid p { margin: 0; color: #333; font-size: 15px; }
 .related-post-grid > a:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Support and privacy */
+.info-shell { min-height: 100vh; }
+.info-hero {
+  padding: 80px max(22px, calc((100vw - 1000px) / 2)) 66px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(165deg, #fff 64%, #ffedbe 86%, #cdffea);
+}
+.info-hero h1 { margin-bottom: 22px; font-size: clamp(46px, 7vw, 78px); }
+.info-lead { max-width: 720px; color: #333; font-size: 20px; font-weight: 300; }
+.info-date { margin: 30px 0 0; color: var(--muted); font-size: 14px; }
+.info-hero .button { margin-top: 14px; }
+.info-content { max-width: 1000px; margin: 0 auto; padding: 32px 22px 90px; }
+.info-content section { padding: 36px 0; border-bottom: 1px solid var(--line-soft); }
+.info-content section:last-child { border-bottom: 0; }
+.info-content h2 { margin-bottom: 20px; font-size: clamp(28px, 4vw, 38px); }
+.info-content p, .info-content li { max-width: 780px; color: #242424; font-size: 17px; line-height: 1.7; }
+.info-content p:last-child { margin-bottom: 0; }
+.info-content ul { margin: 0; padding-left: 24px; }
+.info-content li { padding-left: 5px; margin-bottom: 14px; }
+.info-content a { text-underline-offset: 4px; }
 .article-cta {
   display: flex;
   align-items: center;
@@ -470,6 +491,7 @@ dd { margin: 0; line-height: 1.45; }
   .top-nav nav a:nth-child(1),
   .top-nav nav a:nth-child(2),
   .top-nav nav a:nth-child(3) { display: none; }
+  .info-shell .top-nav nav a { display: inline; }
   .hero,
   .blog-hero,
   .section-heading-row,
@@ -491,7 +513,8 @@ dd { margin: 0; line-height: 1.45; }
   .footer nav { align-items: flex-start; flex-wrap: wrap; }
   .blog-hero,
   .blog-section,
-  .article-head { padding-left: 20px; padding-right: 20px; }
+  .article-head,
+  .info-hero { padding-left: 20px; padding-right: 20px; }
   .featured-post { grid-template-columns: 1fr; }
   .blog-hero-visual { width: min(100%, 430px); margin: 0 auto; }
   .post-visual { border-top: 1px solid var(--line); border-left: 0; }
