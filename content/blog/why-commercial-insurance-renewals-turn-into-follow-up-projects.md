@@ -4,6 +4,9 @@ excerpt: "The renewal form is rarely the hard part. The real work starts when in
 publishedAt: "2026-09-13"
 category: "Broking & renewals"
 author: "Sahil Maheshwari"
+seoTitle: "Why Commercial Insurance Renewals Stall"
+seoDescription: "Commercial insurance renewals often stall on changed figures, outdated schedules, unclear ownership, and repeated client follow-up."
+updatedAt: "2026-09-15"
 ---
 
 A commercial insurance renewal can look straightforward from the outside.

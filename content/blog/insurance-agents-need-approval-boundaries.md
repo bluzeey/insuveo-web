@@ -4,6 +4,9 @@ excerpt: "Approval boundaries are not a layer to add after automation. They are 
 publishedAt: "2026-09-12"
 category: "Product design"
 author: "Sahil Maheshwari"
+seoTitle: "Approval Boundaries for Insurance AI Agents"
+seoDescription: "A practical framework for controlling who an insurance AI agent can contact, what it can ask, and when it must return work to a person."
+updatedAt: "2026-09-15"
 ---
 
 The easiest AI agent demo is one where the agent is allowed to keep going until it reaches an answer.
@@ -43,6 +46,24 @@ A useful activity record should let an operator answer a few basic questions qui
 That record matters during the workflow, not only after something goes wrong.
 
 It gives another team member enough context to take over without reconstructing the history from several email threads.
+
+## The boundary needs more than a yes or no
+
+An approval screen can still be too vague. “Allow follow-up” does not tell the operator what the system will do next.
+
+The boundary should describe the action in terms a broker, underwriter, or claims professional can check:
+
+- the named person or approved role that may be contacted;
+- the exact information or document being requested;
+- the channel the system may use;
+- the number and timing of reminders;
+- the conditions that pause the workflow.
+
+These details matter because permission for one action is not permission for every nearby action. Approval to request an updated location schedule does not also allow the system to ask about an unrelated exposure. Permission to remind a known client contact does not allow it to find and message another employee.
+
+The system should carry the approved scope into its activity record. When an operator reviews the run, they should be able to compare what happened with what was permitted. If the scope changes, the change needs a new human decision rather than a quiet expansion by the agent.
+
+This makes review practical. The operator is approving a legible plan, not trusting an open-ended instruction.
 
 ## Autonomy should be earned workflow by workflow
 

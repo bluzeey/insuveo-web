@@ -4,6 +4,9 @@ excerpt: "A client, broker, underwriter, claims team, lawyer, or surveyor may al
 publishedAt: "2026-09-11"
 category: "Insurance operations"
 author: "Sahil Maheshwari"
+seoTitle: "Why Insurance Handoffs Lose Important Context"
+seoDescription: "Insurance handoffs become expensive when the answer moves forward without its source, assumptions, open questions, or decision history."
+updatedAt: "2026-09-15"
 ---
 
 Insurance work moves between people constantly.
@@ -40,7 +43,7 @@ An operator asks a colleague, "Did the client already answer this?"
 
 The information may already exist. What is missing is a reliable record of how that information relates to the request.
 
-That suggests a fairly practical product principle: **when you collect the answer, collect enough context for the next person to use it.**
+That suggests a fairly practical product principle: when you collect the answer, collect enough context for the next person to use it.
 
 For a working insurance request, that could mean keeping together:
 
@@ -70,6 +73,16 @@ They need the current state:
 6. Where did each important fact come from?
 
 That is the level of continuity I think software should help create.
+
+## Current state and history serve different needs
+
+A useful handoff needs a concise current view, but it should not erase the path that produced it.
+
+The current view tells the next person which questions are complete, which documents are usable, and what remains open. The history explains why an item changed, who confirmed it, and which earlier version should no longer be used.
+
+Consider a location schedule that was replaced after a clarification. The current view should present the latest schedule. The history should preserve that the first file was superseded, when the replacement arrived, and whether anyone confirmed that it covered every insured location. Without the current view, the operator has to read the whole thread. Without the history, a clean final record can hide an unresolved assumption.
+
+This distinction also helps with summaries. A summary should make the live status easier to understand while keeping a path back to the underlying reply or document. When somebody challenges a figure, the team can inspect its source instead of treating generated prose as the record itself.
 
 ## This is also a safer place to apply AI
 

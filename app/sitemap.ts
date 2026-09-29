@@ -5,7 +5,7 @@ import { siteUrl } from '../lib/site';
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getBlogPosts().map((post) => ({
     url: `${siteUrl}/blog/${post.slug}`,
-    lastModified: new Date(`${post.publishedAt}T00:00:00Z`),
+    lastModified: new Date(`${post.updatedAt || post.publishedAt}T00:00:00Z`),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));

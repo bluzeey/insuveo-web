@@ -42,10 +42,10 @@ const safeguards = [
 ];
 
 const audiences = [
-  { icon: 'broker' as const, text: 'Commercial insurance brokers' },
-  { icon: 'underwriter' as const, text: 'Property and casualty underwriters' },
-  { icon: 'claims' as const, text: 'Claims and legal coordination teams' },
-  { icon: 'operations' as const, text: 'Insurance operations and corporate risk teams' },
+  { icon: 'broker' as const, text: 'Commercial brokers chasing client information before placement' },
+  { icon: 'underwriter' as const, text: 'Underwriters waiting on missing or inconsistent risk details' },
+  { icon: 'claims' as const, text: 'Claims teams coordinating documents, insureds, lawyers, and specialists' },
+  { icon: 'operations' as const, text: 'Insurance operations teams managing repeated follow-ups across email and spreadsheets' },
 ];
 
 const metrics = [
@@ -55,9 +55,57 @@ const metrics = [
   'Requests ready for review',
 ];
 
+const useCases = [
+  {
+    title: 'Commercial insurance renewals',
+    text: 'Start from last year’s submission, ask the client what changed, request current schedules, and keep each response tied to its source. The broker reviews the resulting change record before it moves to an insurer.',
+  },
+  {
+    title: 'Underwriting information requests',
+    text: 'Turn a list of missing risk details into a controlled request. Insuveo can track partial answers and return unresolved questions without making the underwriting decision.',
+  },
+  {
+    title: 'Claims document follow-up',
+    text: 'Coordinate approved requests for documents and clarifications while preserving who replied, what was accepted, and what still needs a claims professional’s attention.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What kind of insurance work is Insuveo designed for?',
+    answer: 'Insuveo is being designed for repeated information and follow-up workflows in commercial insurance, including renewals, underwriting submissions, and claims coordination.',
+  },
+  {
+    question: 'Does Insuveo make underwriting or claims decisions?',
+    answer: 'No. Insurance professionals keep control of judgement and approval. The product direction focuses on gathering information, tracking context, and returning open items for review.',
+  },
+  {
+    question: 'Can a team control who receives a follow-up?',
+    answer: 'Yes. A workflow defines who may be contacted, what may be requested, how many reminders are allowed, and when the work must return to a person.',
+  },
+  {
+    question: 'How would an Insuveo pilot begin?',
+    answer: 'Start with one narrow workflow that already creates repeated chasing. Map its inputs, approval boundaries, handoffs, and review point before testing any automation.',
+  },
+];
+
 export default function MarketingPage() {
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  };
+
   return (
     <main className="site-shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <header className="top-nav">
         <a className="wordmark" href="/">insuveo</a>
         <nav aria-label="Primary navigation">
@@ -88,8 +136,8 @@ export default function MarketingPage() {
         </div>
         <div className="hero-panel" aria-label="Example insurance workflow">
           <HeroWorkflowVisual />
-          <p className="panel-label">Renewal example</p>
-          <h2>The client replied. The renewal is still blocked.</h2>
+          <p className="panel-label">A familiar renewal problem</p>
+          <h2>The client replied, but the renewal still cannot move forward.</h2>
           <dl>
             <div><dt>Missing</dt><dd>Current turnover and schedule</dd></div>
             <div><dt>Contact</dt><dd>Client finance team</dd></div>
@@ -103,13 +151,18 @@ export default function MarketingPage() {
         <p className="eyebrow">The operational bottleneck</p>
         <div className="section-heading-row">
           <h2>Insurance decisions wait on missing context.</h2>
-          <p>
-            Forms arrive incomplete. Documents are outdated. Follow-up moves across clients, brokers, and underwriters. Insuveo keeps the request and its context together.
-          </p>
+          <div>
+            <p>
+              Forms arrive incomplete. Documents are outdated. Follow-up moves across clients, brokers, and underwriters. Insuveo keeps the request and its context together.
+            </p>
+            <p>
+              The goal is simple: keep insurance work moving without chasing every answer by hand. Each reply should remain connected to the question, the respondent, the source document, and the items that are still open.
+            </p>
+          </div>
         </div>
         <div className="section-visual-wrap">
           <HandoffVisual />
-          <p className="visual-caption">One record from request to review.</p>
+          <p className="visual-caption">Keep each request, answer, source, and unresolved item connected through the handoff.</p>
         </div>
       </section>
 
@@ -144,12 +197,30 @@ export default function MarketingPage() {
       <section className="section split muted-section" id="safety">
         <div>
           <p className="eyebrow">Human control</p>
-          <h2>Automation follows the rules. People make the call.</h2>
+          <h2>People make the insurance decision. Insuveo handles approved follow-up.</h2>
           <ReviewShieldVisual />
         </div>
         <ul className="check-list">
           {safeguards.map((item) => <li key={item}>{item}</li>)}
         </ul>
+      </section>
+
+      <section className="section" id="use-cases">
+        <div className="section-header">
+          <p className="eyebrow">Where it can fit</p>
+          <h2>Start with a narrow commercial insurance workflow.</h2>
+          <p>
+            Insuveo is still an early product direction. These examples describe the kinds of operational work we are exploring with insurance teams, not finished capabilities or promised results.
+          </p>
+        </div>
+        <div className="card-grid three">
+          {useCases.map((useCase) => (
+            <article className="card" key={useCase.title}>
+              <h3>{useCase.title}</h3>
+              <p>{useCase.text}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="section">
@@ -190,6 +261,21 @@ export default function MarketingPage() {
             If your team repeats a frustrating workflow every week, I would like to see it.
           </p>
           <a className="text-link" href={linkedinUrl} target="_blank" rel="noreferrer">Message Sahil on LinkedIn</a>
+        </div>
+      </section>
+
+      <section className="section faq-section" id="questions">
+        <div className="section-header">
+          <p className="eyebrow">Common questions</p>
+          <h2>How Insuveo approaches insurance workflow automation.</h2>
+        </div>
+        <div className="faq-list">
+          {faqs.map((item) => (
+            <details key={item.question}>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
         </div>
       </section>
 

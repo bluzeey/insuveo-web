@@ -4,6 +4,9 @@ excerpt: "Ask a broker, underwriter, or claims professional what slows work down
 publishedAt: "2026-09-13"
 category: "Insurance operations"
 author: "Sahil Maheshwari"
+seoTitle: "Why Missing Information Slows Insurance Work"
+seoDescription: "Missing figures, outdated documents, and unclear answers delay insurance workflows before underwriting or claims judgement can begin."
+updatedAt: "2026-09-15"
 ---
 
 Ask an insurance professional what slows a case down and the answer is not always a difficult underwriting or claims decision.
@@ -40,7 +43,7 @@ A broker should advise the client and structure the placement. An underwriter sh
 
 Yet experienced people often spend part of their day doing something else: chasing, checking, forwarding, reconciling, and reconstructing.
 
-The useful distinction for us is not simply manual versus automated. It is **judgement versus coordination**.
+The useful distinction for us is not simply manual versus automated. It is judgement versus coordination.
 
 The judgement should stay with the insurance professional. The coordination around it can often be made much more structured.
 

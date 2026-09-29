@@ -10,6 +10,9 @@ export type BlogPostMeta = {
   publishedAt: string;
   category: string;
   author: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  updatedAt?: string;
   image?: string;
   imageAlt?: string;
   readingTime: number;
@@ -74,6 +77,9 @@ function loadPost(filename: string): BlogPost {
     publishedAt: data.publishedAt,
     category: data.category,
     author: data.author || 'Insuveo',
+    seoTitle: data.seoTitle || undefined,
+    seoDescription: data.seoDescription || undefined,
+    updatedAt: data.updatedAt || undefined,
     image: data.image || undefined,
     imageAlt: data.imageAlt || undefined,
     readingTime: readingTime(content),

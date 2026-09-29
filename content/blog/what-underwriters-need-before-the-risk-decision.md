@@ -4,6 +4,9 @@ excerpt: "Before an underwriter can assess a risk, somebody has to make sure the
 publishedAt: "2026-09-12"
 category: "Underwriting operations"
 author: "Sahil Maheshwari"
+seoTitle: "What Underwriters Need Before Risk Decisions"
+seoDescription: "Before risk assessment begins, underwriters need a usable submission with current figures, clear answers, source documents, and visible gaps."
+updatedAt: "2026-09-15"
 ---
 
 A lot of technology discussion around underwriting starts with the decision.
@@ -14,7 +17,7 @@ Those are interesting questions.
 
 But there is a more basic one that comes first:
 
-**Does the underwriter actually have the information needed to make the decision?**
+Does the underwriter actually have the information needed to make the decision?
 
 A beautifully summarized submission is still incomplete if the exposure schedule is outdated. A risk score is not very useful if a key figure has no period. A document extraction system can read a PDF perfectly and still miss the fact that the PDF is last year's version.
 
@@ -68,6 +71,23 @@ If an answer conflicts with another source, show the conflict. If the date is mi
 The goal is not to manufacture completeness.
 
 The goal is to help the underwriter see the state of the information quickly enough to spend more attention on the actual risk.
+
+## A usable submission should expose its gaps
+
+Completeness should be inspectable at the level of each underwriting question. A single progress percentage cannot show whether the missing item is routine or material.
+
+For each important answer, a submission record could show:
+
+- the current value or document;
+- the person or source that supplied it;
+- the date or reporting period it covers;
+- whether it was confirmed for this submission;
+- any conflict with another answer;
+- the next clarification, if one is still needed.
+
+This would let an underwriter distinguish between three different states that often look the same in a file list. The document may be absent. It may be present but outdated. Or it may be current but contain an ambiguity that requires judgement.
+
+Those states should lead to different actions. An absent schedule may need a reminder. An old schedule may need confirmation or replacement. An ambiguous exposure may need a direct conversation between the broker and underwriter. Automation can help route the first two. It should make the third visible instead of forcing it through another generic information request.
 
 ## The first useful underwriting agent may be a very boring one
 
